@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+    <title>Profile</title>
+</head>`
+<body>
+     <!-- Start Nav-Bar -->
+     <div class="nav-bar">
+        <div class ="container">
+            <div class="nav-content">
+                <ul>
+                    <li> <a href="main.html"></a>Ahmed Essa</li>
+                    <li> <a href="main.html">Home</a></li>
+                    <li> <a href="#" onclick="profileClicked()">Profile</a></li>
+                </ul>
+                <div class="nav-content" id="nav-content">
+                    <button  id="login"><a href="#">login</a></button>
+                    <button onclick="popupRegister()" id="register"><a href="#">Register</a></button>
+                    <div class="show-photo">
+                        <img src="" alt="">
+                        <h3>Ahmed</h3>
+                    </div>
+                    <button id="Logout" onclick="logout()"><a class='logout'href="#">Logout</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Nav-Bar -->
+    <!-- start Profile -->
+    <div class="profile">
+        <div class="container">
+            <div class="profile-content">
+                <div class="box-one">
+                    <img id="image-profile" src="./image/8.jpg" alt="">
+                </div>
+            <div class="box-two">
+                <h4 id="name-email"></h4>
+                <h4 id="name-user"></h4>
+                <h4 id="name"></h4>
+            </div>
+            <div class="box-post">
+                <h2 id="counter-post">0</h2>
+                <p>post</p>
+            </div>
+            <div class="box-comments">
+                <h2 id="counter-commetns">0</h2>
+                <p>Comments</p>
+            </div>
+        </div>
+        </div>
+    </div>
+        <!-- End Profile -->
+        <!-- start User Name -->
+        <div class="User-Name">
+            <div class="container">
+                <h1><span class="name-user-profile"></span> post</h1>
+                
+            </div>
+        </div>
+        <!-- End User Name -->
+        <!-- Start all Post User -->
+        <div id="main-profile">
+            <div class="container">
+                <div class="content-box">
+                    <div class="nav">
+                        <div class="class_one">
+                            <img  id="image-photo" src="./image/8.jpg" alt="">
+                            <span id="userName"> Ahmed</span>
+                        </div>
+                        <div class="class_2">
+                            <button class="edit" onclick="popupEditPost()">edit</button>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="./image/pexels-nerfee-mirandilla-3186654.jpg" alt="">
+                        <div class="caption">
+                            <p> <span class="time">2  min ago</span></p>
+                            <h2>Special title treatment</h2>
+                            <p>With supporting text below as a natural lead-in to additional content</p>
+                            <hr>
+                        </div>
+                        <div class="comments">
+                            <i></i>
+                            <p><span>(3)</span>Comments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End all Post User -->
+         <!-- start popup login -->
+    <div class="overly">
+        <div class="popup">
+            <div class="box">
+                <h2>Login</h2>
+                <span id="close">+</span>
+            </div>
+            <div class="box-input">
+                <span> UserName:</span>
+                <input type="text" class ="userName">
+                <span> Password:</span>
+                <input type="password" id="password">    
+            </div>
+            <div class="button-box">
+                <button id="close">close</button>
+                <button id="submit" onclick=" clickButtonOpenLoginApi()">login</button>
+            </div>
+        </div>
+    </div>
+    <!-- End popup login-->
+        <!-- start popup register -->
+        <div class="overly-two">
+            <div class="popup">
+                <div class="box">
+                    <h2>Register</h2>
+                    <span id="close">+</span>
+                </div>
+                <div class="box-input">
+                    <span> UserName:</span>
+                    <input type="text" class ="userName_Two">
+                    <span> Name:</span>
+                    <input type="text" id ="Name">
+                    <span> Password:</span>
+                    <input type="password" class="password"> 
+                    <span> Image User:</span>
+                    <input type="file" id ="post-image" class="Image_user">  
+                </div>
+                <div class="button-box">
+                    <button id="close">close</button>
+                    <button id="submit" onclick="registerAPi()">Register</button>
+                </div>
+            </div>
+        </div>
+        <!-- End popup register -->
+    <!-- Start  Massage alert -->
+        <div class="alert-massage">
+            <h2></h2>
+        </div>
+    <!-- End  Massage alert -->
+      <!-- start popup  EditPost -->
+      <div class="overly-four">
+        <div class="popup">
+            <div class="box">
+                <h2>EditPost</h2>
+                <span id="close">+</span>
+            </div>
+            <div class="box-input">
+                <span> Title:</span>
+                <input type="text" id ="post-title_2" > 
+                <span> body:</span>
+                <textarea cols="5" name="" id="post-body_2"  ></textarea>
+                <input type="hidden" id="post-id-input" value="">
+                <span> Image:</span>
+                <input type="file" id ="post-image-createPost_2">
+            </div>
+            <div class="button-box">
+                <button id="close" >close</button>
+                <button id="submit" onclick="createPostApi()">Create</button>
+            </div>
+        </div>
+    </div>  
+    <!-- End popup  EditPost -->
+    <!-- start popup  DeletePost -->
+    <div class="overly-five">
+        <div class="popup">
+            <div class="box">
+                <h2>Delate Post</h2>
+                <span id="close">+</span>
+            </div>
+            <h2 class="text-delate">Are you sure about deleting the post</h2>
+            <input type="hidden" id="id-delate">
+            <button onclick="delatePostApi()"> Delate</button>
+        </div>
+    </div>
+    <!-- End popup  DeletePost -->
+        <!-- start loading Loder -->
+    <div class="loading">
+        <svg class="pl" viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+                    <stop offset="0%" stop-color="hsl(313,90%,55%)" />
+                    <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+                </linearGradient>
+                <linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="hsl(313,90%,55%)" />
+                    <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+                </linearGradient>
+            </defs>
+            <circle class="pl__ring" cx="100" cy="100" r="82" fill="none" stroke="url(#pl-grad1)" stroke-width="36" stroke-dasharray="0 257 1 257" stroke-dashoffset="0.01" stroke-linecap="round" transform="rotate(-90,100,100)" />
+            <line class="pl__ball" stroke="url(#pl-grad2)" x1="100" y1="18" x2="100.01" y2="182" stroke-width="36" stroke-dasharray="1 165" stroke-linecap="round" />
+        </svg>
+    </div>
+    <!-- End loading Loder -->
+
+    <script src="./js/main.js" ></script>
+    <script src="./js/page_profile.js" ></script>
+</body>
+</html>

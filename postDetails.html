@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+    <title> post</title>
+</head>
+<body>
+    <!-- Start Nav-Bar -->
+    <div class="nav-bar">
+        <div class ="container">
+            <div class="nav-content">
+                <ul>
+                    <li> <a href="main.html">Ahmed Essa</a></li>
+                    <li> <a href="#">Home</a></li>
+                    <li> <a href="profile.html">Profile</a></li>
+                </ul>
+                <div class="nav-content" id="nav-content">
+                    <button  id="login"><a href="#">login</a></button>
+                    <button onclick="popupRegister()" id="register"><a href="#">Register</a></button>
+                    <div class="show-photo">
+                        <img src="" alt="">
+                        <h4>Ahmed</h4>
+                    </div>
+                    <button id="Logout" onclick="logout()"><a class='logout'href="#">Logout</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Nav-Bar -->
+
+    <!-- start #2 Main Page  -->
+    <div class="container ">
+        <h1>
+            <span id="user_name_two">Ahmed</span>
+            post
+        </h1>
+    </div>
+    <!-- start #2 Main Page -->
+        <div class="main-page_two">
+            <div class="container">
+                <div class="content-box">
+                    <div class="nav">
+                        <img  id="image-photo" src="./image/8.jpg" alt="">
+                        <span id="userName"> Ahmed</span>
+                    </div>
+                    <div class="image">
+                        <img src="./image/pexels-nerfee-mirandilla-3186654.jpg" alt="">
+                        <div class="caption">
+                            <p> <span class="time">2  min ago</span></p>
+                            <h2>Special title treatment</h2>
+                            <p>With supporting text below as a natural lead-in to additional content</p>
+                            <hr>
+                        </div>
+                        <div class="comments">
+                            <i></i>
+                            <p><span>(3)</span>Comments</p>
+                        </div>
+                        
+                    </div>
+                    <div class="all-comments">
+                        <div class="user_comment">
+                            <img src="./image/8.jpg" alt="">
+                            <h3> ahmed </h3>
+                        </div>
+                        <p>Lorem ipsum dolor  elit. Corporis, impedit esse delectus odio consequuntur ab dolores modi unde vero dicta, quidem </p>
+                    </div>
+                    <div class="creat-comment">
+                        <input type="text" id="addComment" placeholder="add your comment here..">
+                        <button type="submit" >send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- End #2 Main Page -->
+    <!-- start popup login -->
+    <div class="overly">
+        <div class="popup">
+            <div class="box">
+                <h2>Login</h2>
+                <span id="close">+</span>
+            </div>
+            <div class="box-input">
+                <span> UserName:</span>
+                <input type="text" class ="userName">
+                <span> Password:</span>
+                <input type="password" id="password">    
+            </div>
+            <div class="button-box">
+                <button id="close">close</button>
+                <button id="submit" onclick=" clickButtonOpenLoginApi()">login</button>
+            </div>
+        </div>
+    </div>
+    <!-- End popup login-->
+        <!-- start popup register -->
+        <div class="overly-two">
+            <div class="popup">
+                <div class="box">
+                    <h2>Register</h2>
+                    <span id="close">+</span>
+                </div>
+                <div class="box-input">
+                    <span> UserName:</span>
+                    <input type="text" class ="userName_Two">
+                    <span> Name:</span>
+                    <input type="text" id ="Name">
+                    <span> Password:</span>
+                    <input type="password" class="password"> 
+                    <span> Image User:</span>
+                    <input type="file" id ="post-image" class="Image_user">  
+                </div>
+                <div class="button-box">
+                    <button id="close">close</button>
+                    <button id="submit" onclick="registerAPi()">Register</button>
+                </div>
+            </div>
+        </div>
+        <!-- End popup register -->
+    <!-- Start  Massage alert -->
+        <div class="alert-massage">
+            <h2></h2>
+        </div>
+    <!-- End  Massage alert -->
+        <!-- start adding a button to create a page -->
+        <button id="create-post" style="opacity:0;" onclick="popupCreatePost()" >+</button>
+    <!-- End adding a button to create a page -->
+            <!-- start popup createPost -->
+            <div class="overly-three">
+                <div class="popup">
+                    <div class="box">
+                        <h2>CreatePost</h2>
+                        <span id="close">+</span>
+                    </div>
+                    <div class="box-input">
+                        <span> Title:</span>
+                        <input type="text" id ="post-title"> 
+                        <span> body:</span>
+                        <textarea cols="5" name="" id="post-body" ></textarea>
+                        <span> Image:</span>
+                        <input type="file" id ="post-image-createPost">  
+                    </div>
+                    <div class="button-box">
+                        <button id="close">close</button>
+                        <button id="submit" onclick="createPostApi()">Create</button>
+                    </div>
+                </div>
+            </div>  
+            <!-- End popup createPost -->
+    <!-- start loading Loder -->
+    <div class="loading">
+        <svg class="pl" viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+                    <stop offset="0%" stop-color="hsl(313,90%,55%)" />
+                    <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+                </linearGradient>
+                <linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="hsl(313,90%,55%)" />
+                    <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+                </linearGradient>
+            </defs>
+            <circle class="pl__ring" cx="100" cy="100" r="82" fill="none" stroke="url(#pl-grad1)" stroke-width="36" stroke-dasharray="0 257 1 257" stroke-dashoffset="0.01" stroke-linecap="round" transform="rotate(-90,100,100)" />
+            <line class="pl__ball" stroke="url(#pl-grad2)" x1="100" y1="18" x2="100.01" y2="182" stroke-width="36" stroke-dasharray="1 165" stroke-linecap="round" />
+        </svg>
+    </div>
+    <!-- End loading Loder -->
+    <script src="./js/main.js" ></script>
+    <script src="./js/page_two.js"></script>
+</body>
+</html>
