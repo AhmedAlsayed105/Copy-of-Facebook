@@ -31,7 +31,7 @@ window.addEventListener("scroll", ()=>{
 
     function postApi(reload = true,page = 1  ) {
         toggleLoader(true)
-    axios.get(`http://tarmeezacademy.com/api/v1/posts?limit=10&page=${page}`, {})
+    axios.get(`https://tarmeezacademy.com/api/v1/posts?limit=10&page=${page}`, {})
     .then(function (response) {
         toggleLoader(false)
 
