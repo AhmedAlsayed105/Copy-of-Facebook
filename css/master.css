@@ -20,7 +20,9 @@ a{
 
 body{
     font-family: 'Open Sans', sans-serif;
-    background-color: #f0ecff;
+    /* background-color: #f0ecff; */
+    background-color: #546e7a;
+    background-color: #455a64f2;
 }
 .container{
     width: 1170px;
@@ -165,12 +167,12 @@ body{
 
 .nav-bar .nav-content{
     background-color: white;
-    padding: 5px 7px;
+    padding: 0px 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
-    gap: 10px;
+    gap: 0 10px;
     box-shadow: 1px 1px 1px -4px #777;
 }
 .nav-bar .nav-content ul{
